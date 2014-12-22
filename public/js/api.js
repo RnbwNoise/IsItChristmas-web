@@ -135,7 +135,9 @@ var IIC = {
     // Flag rotation
     
     getAngle: function(userId) {
-        return (userId ? others[userId].angle : me.angle) / 180 * Math.PI;
+        if(userId && userId !== me.id)
+            return others[userId] ? (others[userId].angle / 180 * Math.PI) : null;
+        return me.angle / 180 * Math.PI;
     },
     
     setAngle: function(angle) {
