@@ -67,7 +67,7 @@ var IIC = {
     // Countries
     
     getCountry: function(userId) {
-        if(userId)
+        if(userId && userId !== me.id)
             return others[userId] ? others[userId].country : null;
         return me.country;
     },
