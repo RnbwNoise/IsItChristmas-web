@@ -47,7 +47,9 @@ var IIC = {
     },
     
     isConnected: function(userId) {
-        return !!others[userId];
+        if(userId)
+            return !!others[userId];
+        return !!others[me.id];
     },
     
     onConnection: function(listener) {
