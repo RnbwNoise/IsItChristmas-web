@@ -123,6 +123,10 @@ var IIC = {
     },
     
     setPosition: function(x, y) {
+        // moveFlag() doesn't move the flag to points where one or both coordinates are 0.
+        x = x || 1;
+        y = y || 1;
+        
         // Pretend we moved the mouse to a given location.
         mouseMove({
             clientX: x - window.pageXOffset,
