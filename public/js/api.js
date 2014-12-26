@@ -74,29 +74,6 @@ var IIC = {
         return me.country;
     },
     
-    setCountry: function(countryCode) {
-        me.country = countryCode;
-        
-        // Delete the old cursor and remember its position, if necessary.
-        var isFlagVisible = me.flag && me.flag.parentElement;
-        var oldFlagPosition = this.getPosition();
-        if(isFlagVisible)
-            me.flag.parentElement.removeChild(me.flag);
-        
-        // Create a new cursor.
-        setCursor(me.country);
-        
-        // Flag was visible: put it back.
-        if(isFlagVisible) {
-            document.body.appendChild(me.flag);
-            
-            me.flag.style.left = oldFlagPosition.x + 'px';
-            me.flag.style.top = oldFlagPosition.y + 'px';
-            
-            me.flag._new = false;
-        }
-    },
-    
     // Flag dimensions
     
     getFlagWidth: function(countryCode) {
